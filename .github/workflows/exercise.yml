@@ -6,7 +6,10 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
-
+  
+env:                      # ← 新增：顶层 env，和 on、jobs 同级
+  APP_ENV: development
+  
 jobs:
   hello:
     runs-on: ubuntu-latest
@@ -22,6 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Building project"
+      - run: echo "Environment is $APP_ENV"   # ← 新增：打印变量
 
   test:
     needs: build
