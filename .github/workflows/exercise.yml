@@ -17,3 +17,13 @@ jobs:
         run: echo "Hello, GitHub Actions!"
       - name: List files
         run: ls -la
+        
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Building project"
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Running tests"
